@@ -15,6 +15,15 @@ Create a reading interface that helps developers independently understand and ve
 6. Use a high-contrast light single-column layout suitable for a 10.3-inch e-ink device. Put explanation immediately next to its code vertically. Keep code font legible with horizontal overflow. Add stable block IDs, links from overview to implementation, search for blocks, expand/collapse details and a one-click copyable follow-up question containing filename, source hash, block and line range. Do not imply this sends a question to an agent.
 7. Verify coverage without omissions/overlaps and byte-for-byte reconstruction of embedded original source. Check diagram links and controls. Render at desktop and narrow viewport with available local tools; report if visual verification is unavailable. Run source examples when safe. Do not claim comprehension improvements were measured by these checks.
 
+## Required reading order: whole before parts
+
+1. **Purpose and mental model.** Start with the problem the file solves, its place in the larger system, input/output shapes, main responsibilities and one small before/after example. Explain the overall strategy in connected prose before introducing individual functions. Keep provenance and controls secondary.
+2. **Whole-file workflow diagram.** End the overview with an actual rendered workflow chart (or DAG for genuinely acyclic dependencies), before any annotated source blocks. Use connected nodes, directed arrows and labeled decisions to show successful, rejected and skipped paths where applicable. A list of cards, headings or arrows embedded in prose is not a substitute. Prefer embedded SVG with accessible title/description and links to implementation blocks; do not rely on external diagram services. Show loops truthfully rather than forcing them into a DAG. Follow the diagram with a short explanation of how to read it.
+3. **Parts in context.** Only then introduce detailed code blocks. Group them under the conceptual stages from the overview. State where each part fits in the chart, its role and its relation to other parts before explaining statements. Preserve complete line coverage and provide an original-order source view even if the teaching order differs.
+4. **Trace, limitations and self-check.** Retain concrete execution traces and end-of-guide questions with initially hidden answers and links back to the relevant code. Include prediction and modification questions, not only factual recall. Preserve copyable follow-up prompts.
+
+Check the visible document order explicitly: purpose and overall strategy → rendered diagram → detailed implementation → trace and questions. Do not start with a source listing, dense function catalog or metadata wall. Maintain this hierarchy even for short files.
+
 ## Explanation contract
 - Make the guide sufficient to follow implementation, not just architecture.
 - Explain data shape, mutations, return values, early exits and exception handling.
