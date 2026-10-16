@@ -22,3 +22,20 @@ Add this repository's skill directory to the skills location supported by your c
 The skill instructions are written in English. Generated explanations follow the language requested by the user.
 
 See [SKILL.md](SKILL.md) for the complete workflow and explanation requirements.
+
+## Example
+
+The [examples](examples/) directory contains a complete, runnable demonstration:
+
+- [expense_pipeline.py](examples/expense_pipeline.py): a 99-line Python program that normalizes, categorizes, deduplicates and summarizes sample expenses.
+- [expense_pipeline.html](examples/expense_pipeline.html): its standalone reading companion, including an overview, execution flow, detailed source explanations, executed examples and self-check questions.
+
+Download the HTML file and open it in a browser; it works offline. GitHub's file view displays the HTML source rather than the rendered guide.
+
+Run the sample with Python 3.9 or newer:
+
+```sh
+python3 examples/expense_pipeline.py
+```
+
+The sample accepts four expenses, detects one duplicate, rejects one invalid amount and reports a total of 5,101 cents. The guide also explains the limitations of the sample's deduplication and amount-validation rules.
