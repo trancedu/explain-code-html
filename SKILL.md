@@ -24,6 +24,15 @@ Create a reading interface that helps developers independently understand and ve
 
 Check the visible document order explicitly: purpose and overall strategy → rendered diagram → detailed implementation → trace and questions. Do not start with a source listing, dense function catalog or metadata wall. Maintain this hierarchy even for short files.
 
+## Segmenting long functions and legacy layouts
+
+- Use semantic boundaries, not fixed line counts or one-block-per-function. Split when the responsibility, state transition, loop phase, branch family or exception boundary changes. Aim for a screen-sized passage (often 10–35 meaningful lines); treat size as a review signal, not a hard cut. Keep coherent short expressions and branch units intact.
+- Give long or multi-responsibility functions a parent overview with signature, purpose, stage map and shared-state inventory before child blocks. Use parent links and stable child IDs. Parent overviews summarize without duplicating annotated source; only leaf blocks own source ranges, preserving exactly-once coverage.
+- At each long-function child boundary, state relevant incoming state, changed state, and possible next destinations. Link early returns, continue, break and exception paths to their actual targets. Add a local chart where nested control flow is difficult to follow. Explain noncontiguous relationships through links rather than silently joining disjoint excerpts.
+- Separate physical layout from the teaching path. For poorly ordered legacy files, derive a role/call map and provide an explicitly labeled suggested reading route while keeping exact file/line anchors and original-order source. Introduce late-defined helpers at first conceptual use through a short contract and a link; explain them fully once.
+- Preserve awkward reality: identify mixed responsibilities, aliasing, mutation, temporal coupling, order dependence and unclear intent where present. Do not refactor source or present a cleaner imagined architecture as existing behavior. Label proposed extraction boundaries as suggestions.
+- For large guides, keep a compact stage/function navigation layer and progressive detail. Check that readers can identify the current function and stage without scrolling back to the top. Full coverage is a completeness check, not proof that an explanation is sufficient or correct.
+
 ## Explanation contract
 - Make the guide sufficient to follow implementation, not just architecture.
 - Explain data shape, mutations, return values, early exits and exception handling.

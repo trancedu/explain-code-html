@@ -39,3 +39,10 @@ python3 examples/expense_pipeline.py
 ```
 
 The sample accepts four expenses, detects one duplicate, rejects one invalid amount and reports a total of 5,101 cents. The guide also explains the limitations of the sample's deduplication and amount-validation rules.
+
+### Longer legacy-style example
+
+- [legacy_reconciliation.py](examples/legacy_reconciliation.py): a 351-line synthetic stress case with a 200-line reconciliation function, nested matching paths, mutable internal state and helpers defined below their callers.
+- [legacy_reconciliation.html](examples/legacy_reconciliation.html): a detailed reading companion for inspecting semantic segmentation and cross-block relationships.
+
+This is a deliberately awkward, runnable demonstration, not production accounting software or a controlled study of comprehension benefits. Run it with `python3 examples/legacy_reconciliation.py`.
