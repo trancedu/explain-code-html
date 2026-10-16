@@ -1,0 +1,14 @@
+interface:
+  display_name: Code Reading Companion
+  short_description: Read source code through complete HTML explanations
+  default_prompt: Use $explain-code-html to turn this source file into a detailed
+    HTML reading companion.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
